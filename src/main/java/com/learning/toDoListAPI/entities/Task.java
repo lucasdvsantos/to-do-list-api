@@ -16,6 +16,8 @@ public class Task implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
+
+    @Enumerated(EnumType.STRING)
     private TaskStatus status;
 
     public Task() {
