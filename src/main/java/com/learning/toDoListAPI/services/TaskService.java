@@ -3,6 +3,7 @@ package com.learning.toDoListAPI.services;
 import com.learning.toDoListAPI.entities.Task;
 import com.learning.toDoListAPI.repositories.TaskRepository;
 import com.learning.toDoListAPI.services.exceptions.ResourceNotFoundException;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
@@ -30,13 +31,21 @@ public class TaskService {
     }
 
     public void delete(Long id) {
-        repository.deleteById(id);
+        if(repository.existsById(id)) {
+            repository.deleteById(id);
+        } else {
+            throw new ResourceNotFoundException(id);
+        }
     }
 
     public Task update(Long id, Task obj) {
-        Task entity = repository.getReferenceById(id);
-        updateData(entity, obj);
-        return repository.save(entity);
+        try {
+            Task entity = repository.getReferenceById(id);
+            updateData(entity, obj);
+            return repository.save(entity);
+        } catch (EntityNotFoundException e) {
+            throw new ResourceNotFoundException(id);
+        }
     }
 
     private void updateData(Task entity, Task obj) {
