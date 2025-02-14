@@ -50,13 +50,13 @@ A simple RESTful API for managing tasks, built with Spring Boot, Spring Data JPA
 
 To retrieve tasks with a specific status, use the ```/tasks/filter``` endpoint with a query paramenter
 
-## Example Request
+### Example Request
 
 ```
  GET http://localhost:8080/tasks/filter?status=PENDENTE
 ```
 
-## Example JSON Request (Create Task)
+### Example JSON Request (Create Task)
 ```
 [
     {
