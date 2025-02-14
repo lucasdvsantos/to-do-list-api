@@ -1,6 +1,7 @@
 package com.learning.toDoListAPI.services;
 
 import com.learning.toDoListAPI.entities.Task;
+import com.learning.toDoListAPI.enums.TaskStatus;
 import com.learning.toDoListAPI.repositories.TaskRepository;
 import com.learning.toDoListAPI.services.exceptions.ResourceNotFoundException;
 import jakarta.persistence.EntityNotFoundException;
@@ -24,6 +25,10 @@ public class TaskService {
     public Task findById(Long id) {
         Optional<Task> obj = repository.findById(id);
         return obj.orElseThrow(() -> new ResourceNotFoundException(id));
+    }
+
+    public List<Task> findByStatus(TaskStatus status) {
+        return repository.findByStatus(status);
     }
 
     public Task insert(Task obj) {

@@ -30,6 +30,12 @@ public class TaskResource {
         return ResponseEntity.ok().body(obj);
     }
 
+    @GetMapping(value = "/filter")
+    public ResponseEntity<List<Task>> findByStatus(@RequestParam TaskStatus status){
+        List<Task> list = service.findByStatus(status);
+        return ResponseEntity.ok().body(list);
+    }
+
     @PostMapping
     public ResponseEntity<Task> insert(@RequestBody Task obj) {
         obj = service.insert(obj);
