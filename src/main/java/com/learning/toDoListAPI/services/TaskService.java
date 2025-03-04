@@ -4,6 +4,7 @@ import com.learning.toDoListAPI.entities.Task;
 import com.learning.toDoListAPI.enums.TaskStatus;
 import com.learning.toDoListAPI.repositories.TaskRepository;
 import com.learning.toDoListAPI.services.exceptions.ResourceNotFoundException;
+import jakarta.persistence.Entity;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -56,5 +57,6 @@ public class TaskService {
     private void updateData(Task entity, Task obj) {
         entity.setTitle(obj.getTitle());
         entity.setStatus(obj.getStatus());
+        entity.setDeadline(obj.getDeadline());
     }
 }
