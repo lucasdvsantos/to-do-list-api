@@ -47,8 +47,8 @@ A simple RESTful API for managing tasks, built with Spring Boot, Spring Data JPA
 ## Example JSON Request (Create Task)
 ```
   {
-    "title": "Ir para o curso de inglês",
-    "status": "PENDENTE"
+    "title": "Go to English course",
+    "status": "PENDING"
   }
 ```
 
