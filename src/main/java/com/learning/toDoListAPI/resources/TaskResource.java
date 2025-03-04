@@ -13,7 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/tasks")
-public class TaskResource {
+public final class TaskResource {
 
     @Autowired
     private TaskService service;
