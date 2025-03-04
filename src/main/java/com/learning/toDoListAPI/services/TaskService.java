@@ -4,11 +4,10 @@ import com.learning.toDoListAPI.entities.Task;
 import com.learning.toDoListAPI.enums.TaskStatus;
 import com.learning.toDoListAPI.repositories.TaskRepository;
 import com.learning.toDoListAPI.services.exceptions.ResourceNotFoundException;
-import jakarta.persistence.Entity;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -44,6 +43,7 @@ public final class TaskService {
         }
     }
 
+    @Transactional
     public Task update(Long id, Task obj) {
         try {
             Task entity = repository.getReferenceById(id);
