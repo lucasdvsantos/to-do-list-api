@@ -2,8 +2,8 @@ package com.learning.toDoListAPI.enums;
 
 public enum TaskStatus {
 
-    PENDENTE,
-    EM_ANDAMENTO,
-    CONCLUIDA
+    PENDING,
+    IN_PROGRESS,
+    COMPLETED
 
 }

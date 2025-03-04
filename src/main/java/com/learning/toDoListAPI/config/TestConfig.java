@@ -22,8 +22,8 @@ public class TestConfig implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        Task t1 = new Task(null, "Pagar as contas", Instant.parse("2025-01-08T00:00:00.000Z"), TaskStatus.PENDENTE);
-        Task t2 = new Task(null, "Arrumar lâmpada", Instant.parse("2025-01-15T00:00:00.000Z"), TaskStatus.CONCLUIDA);
+        Task t1 = new Task(null, "Pay the bills", Instant.parse("2025-01-08T00:00:00.000Z"), TaskStatus.PENDING);
+        Task t2 = new Task(null, "Fix lamp", Instant.parse("2025-01-15T00:00:00.000Z"), TaskStatus.COMPLETED);
 
         taskRepository.saveAll(Arrays.asList(t1, t2));
     }
